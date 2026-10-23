@@ -1,5 +1,5 @@
 {
-  "name": "@broadnet/shortener",
+  "name": "@bn-shortner/shortener",
   "version": "0.1.0",
   "description": "Official TypeScript/JavaScript client for the BN Shortener API (b1.lc): links, QR codes, bio pages, analytics, webhooks, OAuth",
   "license": "MIT",

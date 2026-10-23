@@ -1,17 +1,17 @@
-# @broadnet/shortener (TypeScript / JavaScript)
+# @bn-shortner/shortener (TypeScript / JavaScript)
 
 Official client for the [BN Shortener API](https://b1.lc/docs/) (b1.lc): short links, QR codes, bio pages,
 analytics, Launch Check, webhooks and OAuth. Typed from the OpenAPI spec, no dependencies. Node 20+, Deno, Bun,
 Cloudflare Workers and browsers.
 
 ```bash
-npm install @broadnet/shortener
+npm install @bn-shortner/shortener
 ```
 
 ## Quick start
 
 ```ts
-import { BNShortener } from '@broadnet/shortener';
+import { BNShortener } from '@bn-shortner/shortener';
 
 const bn = new BNShortener({ apiKey: process.env.BN_API_KEY });
 
@@ -44,7 +44,7 @@ Live clicks: `for await (const click of bn.links.streamClicks(linkId)) { ... }`.
 ## Errors
 
 ```ts
-import { ValidationError, APIError } from '@broadnet/shortener';
+import { ValidationError, APIError } from '@bn-shortner/shortener';
 
 try {
   await bn.links.create({ url: 'not a url' });
@@ -60,7 +60,7 @@ says). Every write carries an `Idempotency-Key`, so a retry after a lost answer 
 ## Apps that act for other people (OAuth 2.1)
 
 ```ts
-import { BNShortener, OAuthClient, TokenSession } from '@broadnet/shortener';
+import { BNShortener, OAuthClient, TokenSession } from '@bn-shortner/shortener';
 
 const app = new OAuthClient({ clientId: 'bnc_...', redirectUri: 'https://example.com/callback' });
 const auth = await app.authorizationUrl({ scope: ['read', 'write'] }); // keep auth.state + auth.codeVerifier
@@ -77,7 +77,7 @@ Command-line tools: `const device = await app.startDeviceFlow({ scope: ['read'] 
 ## Webhooks
 
 ```ts
-import { webhooks } from '@broadnet/shortener';
+import { webhooks } from '@bn-shortner/shortener';
 
 const event = await webhooks.constructEvent(rawBody, req.headers, process.env.BN_WEBHOOK_SECRET!);
 ```
